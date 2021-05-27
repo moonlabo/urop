@@ -10,7 +10,7 @@ A simple URL-Shorter based on Node.js and TypeScript.
 
 ## Packages
 ```
-npm install @types/node ts-node express @types/express quick.db
+npm install @types/node ts-node express @types/express quick.db body-parser
 ```
 
 ## Run
