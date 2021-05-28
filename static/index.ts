@@ -14,9 +14,12 @@ document.getElementById("submit")?.addEventListener("click", () => {
     })
     .then(res => res.json())
     .then(data => {
-        if (data.status == 200) {
+        const status:number = data.status;
+        if (status == 200) {
             alert("URL이 성공적으로 단축되었습니다.");
             location.reload();
+        } else if (status == 403) {
+            alert("키가 이미 존재합니다.\n다른 키를 입력해주세요.")
         }
     })
 })

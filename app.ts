@@ -16,12 +16,15 @@ app.get("/:key", (req:Request, res:Response) => {
 })
 
 app.post("/api/short/", (req:Request, res:Response) => {
-    const body = req.body;
-    db.set(body.key, body.url);
+    const key:string = req.body.key;
+    const url:string = req.body.url;
 
-    res.json({
-        status: 200
-    })
+    if (db.get(key) == null) {
+        db.set(key, url);
+        res.json({status: 200})
+    } else {
+        res.json({status: 403})
+    }
 })
 
 app.listen(3000, () => {
